@@ -1,0 +1,6 @@
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\bin\Debug\ArgsEcho.exe.config
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\bin\Debug\ArgsEcho.exe
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\bin\Debug\ArgsEcho.pdb
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\obj\Debug\ArgsEcho.csprojResolveAssemblyReference.cache
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\obj\Debug\ArgsEcho.exe
+D:\Level 3\S 1\C#\Project\FP1\ArgsEcho\obj\Debug\ArgsEcho.pdb

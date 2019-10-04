@@ -1,0 +1,6 @@
+D:\Level 3\S 1\C#\Project\FP1\FP1\bin\Debug\FP1.exe.config
+D:\Level 3\S 1\C#\Project\FP1\FP1\bin\Debug\FP1.exe
+D:\Level 3\S 1\C#\Project\FP1\FP1\bin\Debug\FP1.pdb
+D:\Level 3\S 1\C#\Project\FP1\FP1\obj\Debug\FP1.csprojResolveAssemblyReference.cache
+D:\Level 3\S 1\C#\Project\FP1\FP1\obj\Debug\FP1.exe
+D:\Level 3\S 1\C#\Project\FP1\FP1\obj\Debug\FP1.pdb

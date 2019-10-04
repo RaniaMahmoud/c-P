@@ -1,0 +1,9 @@
+D:\Level 3\S 1\C#\Project\FWin\FWin\bin\Debug\FWin.exe.config
+D:\Level 3\S 1\C#\Project\FWin\FWin\bin\Debug\FWin.exe
+D:\Level 3\S 1\C#\Project\FWin\FWin\bin\Debug\FWin.pdb
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.csprojResolveAssemblyReference.cache
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.Form1.resources
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.Properties.Resources.resources
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.csproj.GenerateResource.Cache
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.exe
+D:\Level 3\S 1\C#\Project\FWin\FWin\obj\Debug\FWin.pdb
