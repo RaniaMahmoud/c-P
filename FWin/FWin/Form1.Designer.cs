@@ -34,9 +34,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Location = new System.Drawing.Point(132, 156);
+            this.button1.Location = new System.Drawing.Point(172, 153);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 32);
+            this.button1.Size = new System.Drawing.Size(163, 38);
             this.button1.TabIndex = 0;
             this.button1.Text = "ClickHere";
             this.button1.UseVisualStyleBackColor = false;
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 328);
+            this.ClientSize = new System.Drawing.Size(524, 414);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "FristWin";
