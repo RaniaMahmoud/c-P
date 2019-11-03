@@ -1,0 +1,34 @@
+using static System.Console;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P6
+{
+    class Program
+    {
+        static void A(string key, string str)
+        {
+            int[] x = new int[str.Length];
+            for (int i = 0; i < str.Length; i++)
+
+                x[i] = (str[i] ^ key[i % key.Length]);
+
+            for (int i = 0; i < x.Length; i++)
+
+                WriteLine((char)x[i]);
+        }
+        static void Main(string[] args)
+        {
+            string str = ReadLine();
+            string key = "ab";
+
+            A(key, str);
+
+            ReadKey();
+        }
+
+    }
+}
