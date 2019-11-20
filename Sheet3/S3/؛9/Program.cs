@@ -20,7 +20,12 @@ namespace P9
 
                 for (double i = 1; i <= n; i++)
                 {
-                    sum += 1 / i;
+                    if (i % 2 == 0)
+                    {
+                        Write("-" + 1 + "/" + i + " ");
+                    }
+                    else
+                        Write("-" + 1 + "/" + i + " ");
                 }
                 WriteLine((float)sum);
             }

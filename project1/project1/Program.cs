@@ -5,99 +5,145 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Collections;
 
 namespace project1
 {
     class Program
     {
         static int score = 0;
-        static int ballpositionx = 0;
-        static int ballpositiony = 0;
-        static bool balldirectionup = true;
-        static bool balldirectionright = false;
+        static bool gameOver = false;
+
         static int StartPage(int WinHeight, int WinWidth)
         {
-            SetCursorPosition(WinHeight, WinWidth);
+            SetCursorPosition(WinHeight + 15, WinWidth - 110);
+            BackgroundColor = ConsoleColor.White;
+            ForegroundColor = ConsoleColor.Blue;
+            WriteLine(@" Choose level:");
+            SetCursorPosition(WinHeight + 15, (WinWidth + 2) - 110);
+            BackgroundColor = ConsoleColor.Black;
+            ForegroundColor = ConsoleColor.Blue;
+            WriteLine(@"1 - Normal");
+            SetCursorPosition(WinHeight + 15, (WinWidth + 4) - 110);
+            ForegroundColor = ConsoleColor.Blue;
+            WriteLine(@"2 - Difficult");
+            SetCursorPosition(WinHeight + 15, (WinWidth + 6) - 110);
             ForegroundColor = ConsoleColor.Yellow;
-            WriteLine(@"Enter the level 1 or 2 : ");
-            SetCursorPosition(WinHeight, WinWidth + 2);
-            ForegroundColor = ConsoleColor.Green;
-            WriteLine(@"1-Level 1");
-            SetCursorPosition(WinHeight, WinWidth + 4);
-            ForegroundColor = ConsoleColor.White;
-            WriteLine(@"2-Level 2");
-            SetCursorPosition(WinHeight, WinWidth + 6);
+            WriteLine(@"Enter your Choice:");
+            SetCursorPosition(WinHeight + 34, (WinWidth + 6) - 110);
             int num = int.Parse(ReadLine());
 
             return num;
         }
-        static void Draw(int WinWidth, int WinHeight)
-        {
-            Random rnd = new Random();
-            ForegroundColor = ConsoleColor.Red;
-            SetCursorPosition(rnd.Next(WinWidth), rnd.Next(WinHeight));
-            Write(@"               ^                            @                                             * 
-                                                             !                                            &                                    +
-                                        %                                         $                                                         #
 
-                               .                                 ;                            - 
-                ");
+        static void drawDwarf(Dwarf dwarf)
+        {
+            SetCursorPosition(dwarf.x, dwarf.y);
+            Write("(O)");
         }
 
-        static void SetBall()
+        static Dwarf moveDwarf(Dwarf dwarf)
         {
-            ballpositionx = WindowWidth / 2;
-            ballpositiony = WindowHeight / 2;
-        }
-
-        static void PrintAtPosition(int x, int y, char symbol)
-        {
-            SetCursorPosition(x, y);
-            Write(symbol);
-        }
-
-        static void DrawBall()
-        {
-            PrintAtPosition(ballpositionx, ballpositiony, 'O');
-        }
-
-        static void MoveBall()
-        {
-            if (balldirectionup)
+            if (KeyAvailable)
             {
-                ballpositiony--;
+                ConsoleKeyInfo pressedKey = ReadKey();
+                bool isRight = (pressedKey.Key == ConsoleKey.RightArrow);
+                //3 is length of the (O)
+                //WindowWidth - 1 becouse WindowWidth start from 0
+                if (isRight && dwarf.x + 3 < WindowWidth - 1)
+                {
+                    dwarf.x++;
+                }
+                else if (!isRight && dwarf.x > 0)
+                {
+                    dwarf.x--;
+                }
             }
-            else
+            return dwarf;
+        }
+
+        static void DrawRocks(LinkedList<Rock> rocks, Random randomNum, Dwarf dwarf)
+        {
+            //creating rocks
+            string symbols = "^@*&+%$#!.;-";
+            int count = WindowWidth - 2;
+
+            for (int i = 1; i <= count; ++i)
             {
-                ballpositiony++;
+                if (randomNum.Next(0, 100) >= 99)
+                {
+                    string rockSymbol = symbols[randomNum.Next(0, symbols.Length)].ToString();
+                    Rock newRock = new Rock(i, 0, rockSymbol);
+                    rocks.AddLast(newRock);
+                }
             }
 
-            if (balldirectionright)
+            //To MoveRocks
+            List<Rock> rocksToRemove = new List<Rock>();
+            foreach (Rock rock in rocks)
             {
-                ballpositionx++;
+                rock.y += 1;
+                if (rock.y == WindowHeight)
+                {
+                    rocksToRemove.Add(rock);
+                }
+
+                for (int i = 0; i < dwarf.Dsymbol.Length; ++i)
+                {
+                    if (rock.x == dwarf.x + i && rock.y == dwarf.y)
+                    {
+                        dwarf.Hit = true;
+                    }
+                }
+
             }
-            else
+            foreach (Rock rock in rocksToRemove)
             {
-                ballpositionx--;
+                rocks.Remove(rock);
+            }
+
+            //Drow the Rocks
+            foreach (Rock rock in rocks)
+            {
+                SetCursorPosition(rock.x, rock.y);
+                Write(rock.Rsymbol);
             }
         }
 
-        static void PrintScore(int sco,int WinHeight ,int WinWidth)
+        static void collisionCheck(Dwarf dwarf)
+        {
+            if (dwarf.Hit)
+            {
+                gameOver = true;
+            }
+        }
+
+        static void PrintScore(int sco, int WinHeight, int WinWidth)
         {
             Clear();
-            SetCursorPosition(WinHeight, WinWidth);
+            SetCursorPosition(WinHeight + 15, WinWidth - 105);
+            ForegroundColor = ConsoleColor.Black;
+            BackgroundColor = ConsoleColor.White;
+            WriteLine(@"GAME OVER!", sco);
+            SetCursorPosition(WinHeight + 15, ((WinWidth) + 2) - 105);
+            BackgroundColor = ConsoleColor.Magenta;
             ForegroundColor = ConsoleColor.Yellow;
-            WriteLine(@"Your Score = {0}", sco);
+            WriteLine(@"Your Points : {0}", sco);
         }
 
         static void Main(string[] args)
         {
+
             Title = "Rock Game";
+            SetWindowSize(120, 30);
             int WinWidth, WinHeight;
             WinWidth = WindowWidth;
             WinHeight = WindowHeight;
-            ConsoleKeyInfo key;
             int num = StartPage(WinHeight, WinWidth);
+            LinkedList<Rock> rocks = new LinkedList<Rock>(); 
+            Random randomNum = new Random();
+            Dwarf dwarf = new Dwarf((WinWidth - 1 - 3) / 2, WinHeight, "(O)");
+            drawDwarf(dwarf);
             switch (num)
             {
                 case 1:
@@ -105,33 +151,69 @@ namespace project1
                     while (true)
                     {
 
-                        if (Console.KeyAvailable)
+                        dwarf = moveDwarf(dwarf);
+                        drawDwarf(dwarf);
+                        DrawRocks(rocks, randomNum, dwarf);
+                        collisionCheck(dwarf);
+                        score += 10;
+                        Thread.Sleep(150);
+                        Clear();
+
+                        if (gameOver)
                         {
-                            ConsoleKeyInfo keyInfo = Console.ReadKey();
-                            if (keyInfo.Key == ConsoleKey.LeftArrow)
-                            {
-                                MoveBall();
-                            }
-                            if (keyInfo.Key == ConsoleKey.RightArrow)
-                            {
-                                MoveBall();
-                            }
+                            PrintScore(score, WinHeight, WinWidth);
+                            Thread.Sleep(5000);
                         }
-                        Draw(WinWidth, WinHeight);
-                        SetBall();
-                        DrawBall();
-                        score += 100;
-                        Thread.Sleep(1000);
                     }
-                    PrintScore(score, WinHeight, WinWidth);
                     break;
                 case 2:
                     Clear();
+                    while (true)
+                    {
+
+                        dwarf = moveDwarf(dwarf);
+                        drawDwarf(dwarf);
+                        DrawRocks(rocks, randomNum, dwarf);
+                        collisionCheck(dwarf);
+                        score += 10;
+                        Thread.Sleep(100);
+                        Clear();
+
+                        if (gameOver)
+                        {
+                            PrintScore(score, WinHeight, WinWidth);
+                            Thread.Sleep(5000);
+                        }
+                    }
                     break;
 
-            } 
-
+            }
             ReadKey();
+        }
+    }
+    class Rock
+    {
+        public int x;
+        public int y;
+        public string Rsymbol;
+        public Rock(int x, int y, string rock)
+        {
+            this.x = x;
+            this.y = y;
+            this.Rsymbol = rock;
+        }
+    }
+    class Dwarf
+    {
+        public int x;
+        public int y;
+        public string Dsymbol;
+        public bool Hit = false; //used for collison detection
+        public Dwarf(int x, int y, string dwarf)
+        {
+            this.x = x;
+            this.y = y;
+            this.Dsymbol = dwarf;
         }
     }
 }
