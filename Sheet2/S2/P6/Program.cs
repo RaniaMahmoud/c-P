@@ -19,7 +19,7 @@ namespace P6
                 column = 0;
                 while (column < n)
                 {
-                    if ((n - 1) / 2 == row || (n - 1) / 2 == column || row + column == n - 1 || column == row)
+                    if ((n) / 2 == row || (n) / 2 == column || (n - 1) - row  == column || column == row)
                     {
                         if (column == (n/2) && row == (n / 2))
                             Write("O");

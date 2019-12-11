@@ -12,9 +12,17 @@ namespace P5
         static void Main(string[] args)
         {
             string s = ReadLine();
-            char[] c = s.ToCharArray();
-            Array.Reverse(c);
-            WriteLine(c);
+            string t = string.Empty;
+            for(int i = 0; i < s.Length; i++)
+            {
+                t = s[i] + t;
+            }
+            WriteLine(t);
+
+            //char[] c = s.ToCharArray();
+            //Array.Reverse(c);
+            //WriteLine(c);
+
             ReadKey();
         }
     }

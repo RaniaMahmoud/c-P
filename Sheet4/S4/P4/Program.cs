@@ -13,7 +13,7 @@ namespace P4
         {
             string str = ReadLine();
             string[] s = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            Array.Sort<string>(s);
+            Array.Sort(s);
             WriteLine(string.Join("\n", s));
             ReadKey();
         }

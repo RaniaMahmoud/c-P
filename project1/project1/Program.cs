@@ -12,6 +12,7 @@ namespace project1
     class Program
     {
         static int score = 0;
+
         static bool gameOver = false;
 
         static int StartPage(int WinHeight, int WinWidth)
@@ -64,7 +65,7 @@ namespace project1
 
         static void DrawRocks(LinkedList<Rock> rocks, Random randomNum, Dwarf dwarf)
         {
-            //creating rocks
+            //create rocks
             string symbols = "^@*&+%$#!.;-";
             int count = WindowWidth - 2;
 
@@ -78,7 +79,7 @@ namespace project1
                 }
             }
 
-            //To MoveRocks
+            //to move rocks
             List<Rock> rocksToRemove = new List<Rock>();
             foreach (Rock rock in rocks)
             {
@@ -102,7 +103,7 @@ namespace project1
                 rocks.Remove(rock);
             }
 
-            //Drow the Rocks
+            //draw rocks
             foreach (Rock rock in rocks)
             {
                 SetCursorPosition(rock.x, rock.y);
@@ -185,6 +186,10 @@ namespace project1
                             Thread.Sleep(5000);
                         }
                     }
+                    break;
+
+                default:
+                    WriteLine("Error!!");
                     break;
 
             }

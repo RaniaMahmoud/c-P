@@ -14,16 +14,19 @@ namespace P8
             int c = 0;
             int[] a = { 3, 2, 1, 10, 5, 4, 0 };
             int temp;
+            int index;
             for (int i = 0; i < a.Length; i++)
             {
+                index = i;
                 for (int j = 0; j < a.Length; j++)
                 {
-                    if (a[i] <= a[j])
+                    if (a[index] > a[j])
                     {
-                        temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
+                        index = j;
                     }
+                    temp = a[i];
+                    a[i] = a[index];
+                    a[index] = temp;
                 }
             }
             WriteLine(string.Join(" ", a));

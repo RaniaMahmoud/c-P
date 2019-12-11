@@ -14,7 +14,7 @@ namespace P13
             int n1;
             bool b1 = int.TryParse(ReadLine(), out n1);
 
-            if (b1)
+            if (b1&& n1 <= 9 && n1 > 0) 
             {
                 switch (n1)
                 {

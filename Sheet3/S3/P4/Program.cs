@@ -19,7 +19,7 @@ namespace P4
             {
                 if (number <= 100)
                 {
-                    for (int i = 2; i <= number/2; i++)
+                    for (int i = 2; i <= Math.Sqrt(number); i++)
                     {
                         if (number % i == 0)
                         {

@@ -15,30 +15,48 @@ namespace P16
             int n, k, sN = 1, sK = 1,sD=1;
             bool b1 = int.TryParse(ReadLine(), out n);
             bool b2 = int.TryParse(ReadLine(), out k);
-            if (b1 && b2)
+            //if (b1 && b2)
+            //{
+            //    if (1 < n && n < k)
+            //    {
+            //        for (int i = 2; i <= n; i++)
+            //        {
+            //            sN *= i;
+            //        }
+            //        for (int i = 2; i <= k; i++)
+            //        {
+            //            sK *= i;
+            //        }
+            //        k -= n;
+            //        for (int i = 2; i <= k; i++)
+            //        {
+            //            sD *= i;
+            //        }
+            //        WriteLine((sN * sK) / sD);
+            //    }
+            //    else
+            //        WriteLine("NOT val");
+            //}
+            //else
+            //    WriteLine("NOT");
+
+            for(int i = k - n + 1; i <= k; i++)
             {
-                if (1 < n && n < k)
+                sN *= i;
+                if (i == k)
                 {
-                    for (int i = 2; i <= n; i++)
+                    i = 2;
+                    while (i <= n)
                     {
                         sN *= i;
+                        i++;
                     }
-                    for (int i = 2; i <= k; i++)
-                    {
-                        sK *= i;
-                    }
-                    k -= n;
-                    for (int i = 2; i <= k; i++)
-                    {
-                        sD *= i;
-                    }
-                    WriteLine((sN * sK) / sD);
+                    break;
                 }
-                else
-                    WriteLine("NOT val");
             }
-            else
-                WriteLine("NOT");
+            WriteLine(sN);
+
+
             ReadKey();
         }
     }

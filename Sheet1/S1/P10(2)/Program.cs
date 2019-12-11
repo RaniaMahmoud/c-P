@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,12 @@ namespace P10_2_
             Console.WriteLine(s1.PadRight(4, pad));
             Console.WriteLine(s1.PadRight(5, pad));
             Console.WriteLine(s1.PadRight(6, pad));
-            
+            WriteLine(@"
+                 *
+                 **
+                 ***
+                 ****   
+");
             Console.ReadKey();
         }
     }

@@ -13,10 +13,10 @@ namespace P10
         {
             int n = int.Parse(ReadLine());
             int i = 2;
-            while (i<n)
+            while (i < n / 2)
             {
-                if(n % i == 0)
-                  Write(i + " ");
+                if (n % i == 0)
+                    Write(i + " ");
                 i++;
             }
 

@@ -46,17 +46,14 @@ namespace P11
                         {
                             if (i - j > j - i)
                                 st += s[i - j];
-                               // Write(s[i - j]);
                             else
                                 st += s[j - i];
-                           // Write(s[j - i]);
                         }
                         else
                             st +=" ";
                         j++;
                     }
                     i++;
-                    //WriteLine();
                     st+=Environment.NewLine;
                 }
                 MessageBox.Show(st);

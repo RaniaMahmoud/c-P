@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,15 @@ namespace P5
     {
         static void Main(string[] args)
         {
-            string s1 = "True";
-            string s2 = "False";
-
-            Console.WriteLine(Convert.ToBoolean(s1) ? "Yes":"No" + "\n");
-            Console.WriteLine(Convert.ToBoolean(s2) ? "Yes" : "No" + "\n");
-            Console.ReadKey();
+            string s1 = ReadLine();
+            bool val = true;
+            WriteLine(s1.ToLower().Equals("true") ? "Yes" : "No");
+            float[] nums = { Single.MaxValue, -193.0012f, 20e-15f, 0f, 10551e-10f, 100.3398f, Single.MaxValue };
+            foreach(var num in nums)
+            {
+                WriteLine($"{num} ---> {val} ", num, Convert.ToBoolean(num));
+            }
+            ReadKey();
         }
     }
 }

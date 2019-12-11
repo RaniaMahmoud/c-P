@@ -13,9 +13,13 @@ namespace P3
         {
             StringBuilder sb = new StringBuilder();
             string s = ReadLine();
-            foreach (char c in s)
-                sb.Append("\\u" + ((int) c).ToString("X4"));
-            WriteLine(sb.ToString());
+            string r = string.Empty;
+            for(int i = 0; i < s.Length; i++)
+            {
+                r += string.Format(@"\u{0:X4}", (int)s[i]);
+            }
+            WriteLine(r);
+
             ReadKey();
         }
     }

@@ -14,20 +14,24 @@ namespace P9
 
             int n;
             bool b = int.TryParse(ReadLine(), out n);
-            double sum = 0.0;
+            double sum = 1;
             if (b)
             {
-
-                for (double i = 1; i <= n; i++)
+                Write(1 + " ");
+                for (double i = 2; i <= n; i++)
                 {
                     if (i % 2 == 0)
                     {
-                        Write("-" + 1 + "/" + i + " ");
+                        Write("+" + 1 + "/" + i + " ");
+                        sum += (1D / i);
                     }
                     else
+                    {
+                        sum -= (1D / i);
                         Write("-" + 1 + "/" + i + " ");
+                    }
                 }
-                WriteLine((float)sum);
+                WriteLine(@"{0:F3}",sum);
             }
             else
                 WriteLine(" Not valid ");

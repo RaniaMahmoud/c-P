@@ -1,4 +1,5 @@
-﻿using System;
+﻿using static System.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,8 @@ namespace P9
             Array.Reverse(arr2);
             Array.ForEach(arr2, Console.Write);
 
-
+            WriteLine((Convert.ToString(num, 2)).ToUpper());
+            WriteLine(Convert.ToString(num, 16));
             Console.ReadKey();
         }
     }

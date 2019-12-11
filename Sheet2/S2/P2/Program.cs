@@ -12,10 +12,13 @@ namespace P2
         {
             WriteLine("Enter an integer then press Enter:");
             int a = int.Parse(ReadLine());
-            if (a < 100)
-                WriteLine("the New Value is: " + a * 10);
-            else
-                WriteLine(a);
+            //if (a < 100)
+            //    WriteLine("the New Value is: " + a * 10);
+            //else
+            //    WriteLine(a);
+
+            WriteLine(a < 100 ? a * 10 : a);
+
             ReadKey();
         }
     }

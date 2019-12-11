@@ -17,7 +17,7 @@ namespace P9
             Write(cube+" = ");
             n = Math.Pow(n, 2) - n + 1;
             double sum = 0;
-            while (sum < cube)
+            while (sum != cube)
             {
                 Write(n + " + ");
                 n += 2;

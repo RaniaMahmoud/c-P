@@ -12,15 +12,15 @@ namespace P5
         static void Main(string[] args)
         {
             int p;
-            int v;
+            byte v;
             bool f = false;
-            bool b1 = int.TryParse(ReadLine(), out v);
+            bool b1 = byte.TryParse(ReadLine(), out v);
             bool b2 = int.TryParse(ReadLine(), out p);
             if (b1 && b2)
             {
-                int mask = 1 << p;
+                //int mask = 1 << p;
 
-                WriteLine((v & mask) != 0 ? 1 : 0);
+                WriteLine((byte)((v >> p) & 1) == 1 ? 1 : 0);
             }
             else
                 WriteLine("Not valid");

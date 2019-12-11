@@ -14,19 +14,22 @@ namespace P20
             int count = 0;
             int n, sN = 1;
             bool b1 = int.TryParse(ReadLine(), out n);
-            if (b1)
-            {
-                for (int i = 2; i <= n; i++)
-                {
-                    sN *= i;
-                }
+            //if (b1)
+            //{
+            //    for (int i = 2; i <= n; i++)
+            //    {
+            //        sN *= i;
+            //    }
 
-                for (int i = 5; n / i >= 1; i *= 5)
-                    count += n / i;
-                WriteLine(count);
-            }
-            else
-                WriteLine("NOT");
+            //    }
+            //else
+            //    WriteLine("NOT");
+
+            for (int i = 5; i <= n; i *= 5)
+                count += (n / i);
+
+            WriteLine(count);
+
             ReadKey();
         }
     }

@@ -17,7 +17,7 @@ namespace P3
             WriteLine("Enter an integer then press Enter:");
             int x = int.Parse(ReadLine());
             int b = y - (m * x);
-            WriteLine($"{y}={m}x+{b}");
+            WriteLine($"the line equation is : Y={m}X" + ((b < 0) ? b + "" : ("+" + b)));
             ReadKey();
         }
     }

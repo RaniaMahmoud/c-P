@@ -17,7 +17,7 @@ namespace P6
             bool b2 = int.TryParse(ReadLine(), out b);
             if (b1 && b2)
             {
-                int mask = (v >> b) & 1;
+                byte mask = (byte)((v >> b) & 1);
                 WriteLine(mask);
             }
             else

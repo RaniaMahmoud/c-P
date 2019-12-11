@@ -22,32 +22,34 @@ namespace P7
 
             if (b1 && b2 && b3 && b4)
             {
-                long[] nB = new long[32];
-                for (long i = 0; i < nB.Length; i++)
+                byte[] nB = new byte[32];
+                for (int i = 0; i < nB.Length; i++)
                 {
                     if (number == 0)
                     {
                         break;
                     }
-                    nB[i] = number % 2;
+                    nB[i] = (byte)(number % 2);
                     number = number / 2;
                 }
-                for (long i = nB.Length - 1; i >= 0; i--)
+                for (int i = nB.Length - 1; i >= 0; i--)
                 {
                     Write(nB[i]);
+                    if ((i + 4) % 4 == 0)
+                        Write(" ");
+
                 }
                 // Making the change
-                for (long i = 0; i < k; i++)
+                for (int i = 0; i < k; i++)
                 {
-                    long temp = 0;
-                    temp = nB[p];
+                    byte temp = nB[p];
                     nB[p] = nB[q];
                     nB[q] = temp;
                     p++;
                     q++;
                 }
                 WriteLine();
-                for (long i = nB.Length - 1; i >= 0; i--)
+                for (int i = nB.Length - 1; i >= 0; i--)
                 {
                     Write(nB[i]);
                     nD += (Math.Pow(2, i) * nB[i]);

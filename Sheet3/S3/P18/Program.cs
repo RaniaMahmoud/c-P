@@ -13,57 +13,66 @@ namespace P18
         {
             for (int j = 1; j <= 4; j++)
             {
-                switch (j)
-                {
-                    case 1:
-                        WriteLine("Diamonds :");
-                        break;
-                    case 2:
-                        WriteLine("Hearts :");
-                        break;
-                    case 3:
-                        WriteLine("Spades :");
-                        break;
-                    case 4:
-                        WriteLine("Clubs :");
-                        break;
-                }
                 for (int i = 1; i <= 10; i++)
                 {
                     switch (i)
                     {
                         case 1:
-                            Write("one ,");
+                            Write(" one ");
                             break;
                         case 2:
-                            Write("two ,");
+                            Write(" two ");
                             break;
                         case 3:
-                            Write("three ,");
+                            Write(" three ");
                             break;
                         case 4:
-                            Write("four ,");
+                            Write(" four ");
                             break;
                         case 5:
-                            Write("five ,");
+                            Write(" five ");
                             break;
                         case 6:
-                            Write("six ,");
+                            Write(" six ");
                             break;
                         case 7:
-                            Write("seven ,");
+                            Write(" seven ");
                             break;
                         case 8:
-                            Write("eig ,");
+                            Write(" eig ");
                             break;
                         case 9:
-                            Write("nige ,");
+                            Write(" nige  ");
+                            break;
+                        case 10:
+                            Write(" ten  ");
                             break;
                         default:
-                            WriteLine("ten ");
+                            WriteLine("eroo ");
                             break;
                     }
+
+                    switch (j)
+                    {
+                        case 1:
+                            Write("  Diamonds \n");
+                            break;
+                        case 2:
+                            Write("  Hearts  \n ");
+                            break;
+                        case 3:
+                            Write("  Spades  \n ");
+                            break;
+                        case 4:
+                            Write("  Clubs  \n  ");
+                            break;
+                        default:
+                            WriteLine("eroo ");
+                            break;
+                    }
+
                 }
+                WriteLine();
             }
             ReadKey();
         }

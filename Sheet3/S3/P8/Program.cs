@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace P8
 {
@@ -11,9 +12,9 @@ namespace P8
     {
         static void Main(string[] args)
         {
-            int num1 = 0;
-            int num2 = 1;
-            int sum = 1;
+            BigInteger num1 = 0;
+            BigInteger num2 = 1;
+            BigInteger sum = 1;
             int count = 0;
 
             WriteLine(num1);

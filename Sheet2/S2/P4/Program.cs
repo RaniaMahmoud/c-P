@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
 
 namespace P4
 {
@@ -10,52 +11,61 @@ namespace P4
     {
         static void Main(string[] args)
         {
-
+            string a = "", b = "", c = "", d = "";
             for (int i = 0; i < 10; i++)
             {
                 for(int j = 0; j < i; j++)
                 {
-                    Write("*");
+                    a+="*";
                 }
-                WriteLine(" ");
+                a+= Environment.NewLine;
             }
-            WriteLine(" ");
+            WriteLine(a);
             for (int i = 10; i > 0; i--)
             {
                 for (int j = 0; j < i; j++)
                 {
-                    Write("*");
+                    b+=("*");
                 }
-                WriteLine(" ");
+                b+=Environment.NewLine;
             }
-            WriteLine(" ");
+            WriteLine(b);
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10-i; j++)
                 {
-                    Write(" ");
+                    c+=(" ");
                 }
                 for (int j = 0; j < i; j++)
                 {
-                    Write("*");
+                    c+=("*");
                 }
 
-                WriteLine();
+                c+=Environment.NewLine;
             }
-            WriteLine(" ");
+            WriteLine(c);
             for (int i = 10; i > 0; i--)
             {
                 for (int j = 0; j < 10 - i; j++)
                 {
-                    Write(" ");
+                    d+=(" ");
                 }
                 for (int j = 0; j < i; j++)
                 {
-                    Write("*");
+                    d+=("*");
                 }
 
-                WriteLine();
+                d+=Environment.NewLine;
             }
+            int sp, st;
+            for (int i = 1; i <= 10; i++)
+            {
+                sp = 10 - i;
+                st = i;
+                d += new string(' ', sp) + new string('*', st) + Environment.NewLine;
+            }
+
+            WriteLine(d);
             ReadKey();
         }
     }

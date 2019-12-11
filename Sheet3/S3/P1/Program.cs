@@ -28,27 +28,27 @@ namespace P1
                 WriteLine("Not a valid entry!");
             }
 
-            bool f = false;
-            int n = 0;
+            //bool f = false;
+            //int n = 0;
 
-            if (b)
-            {
-                for (int i = 1; i <= 3; i++)
-                {
-                    n = num % 10;
-                    num /= 10;
-                    if (i == 3 && n == 7)
-                    {
-                        f = true;
-                    }
-                }
-                if (f)
-                    WriteLine("true");
-                else
-                    WriteLine("false");
-            }
-            else
-                WriteLine("not valid");
+            //if (b)
+            //{
+            //    for (int i = 1; i <= 3; i++)
+            //    {
+            //        n = num % 10;
+            //        num /= 10;
+            //        if (i == 3 && n == 7)
+            //        {
+            //            f = true;
+            //        }
+            //    }
+            //    if (f)
+            //        WriteLine("true");
+            //    else
+            //        WriteLine("false");
+            //}
+            //else
+            //    WriteLine("not valid");
 
             ReadKey();
         }
