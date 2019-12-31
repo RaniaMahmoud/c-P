@@ -23,7 +23,7 @@ namespace P2
         {
             int num;
             bool b;
-            string s = "";
+            string s;
             b = int.TryParse(textBox1.Text, out num);
             if (b) { 
             if (radioButton1.Checked)
