@@ -42,11 +42,7 @@ namespace P12
 
             ReadKey();
         }
-        ( x, y) =>
-            {
-
-            }
-}
+    }
 }
 
 

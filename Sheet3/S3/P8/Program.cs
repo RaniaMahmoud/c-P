@@ -14,16 +14,16 @@ namespace P8
         {
             BigInteger num1 = 0;
             BigInteger num2 = 1;
-            BigInteger sum = 1;
+            BigInteger num3 = 1;
             int count = 0;
 
             WriteLine(num1);
 
             while (count < 100)
             {
-                sum = num1 + num2;
+                num3 = num1 + num2;
                 num1 = num2;
-                num2 = sum;
+                num2 = num3;
                 WriteLine(num2);
                 count++;
             }

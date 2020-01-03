@@ -44,15 +44,15 @@ namespace P9
                       s = s + n.ToString();
                         break;
                 }
-            } while (num >= 16 || num == 1);
+            }
+            while (num >= 16 || num == 1);
+                char[] arr1 = s.ToCharArray();
 
-            char[] arr1 = s.ToCharArray();
             Array.Reverse(arr1);
-            Array.ForEach(arr1, Console.Write);
-            Console.WriteLine();
+            Array.ForEach(arr1, Write);
+            WriteLine();
 
             s = "";
-            n = 0;
             num = temp;
             while (num != 0)
             {
@@ -62,11 +62,11 @@ namespace P9
             }
             char[] arr2 = s.ToCharArray();
             Array.Reverse(arr2);
-            Array.ForEach(arr2, Console.Write);
+            Array.ForEach(arr2, Write);
 
             WriteLine((Convert.ToString(num, 2)).ToUpper());
             WriteLine(Convert.ToString(num, 16));
-            Console.ReadKey();
+            ReadKey();
         }
     }
 }

@@ -54,6 +54,7 @@ namespace P1
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.t1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ph1)).BeginInit();
@@ -121,7 +122,8 @@ namespace P1
             // 
             // tim1
             // 
-            this.tim1.Interval = 500;
+            //this.tim1.Interval = 500;
+            this.tim1.Tick += new System.EventHandler(this.tim1_Tick_1);
             // 
             // p1
             // 
@@ -308,16 +310,25 @@ namespace P1
             // 
             // comboBox1
             // 
-            //this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(167, 309);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 14;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(266, 404);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "00:00:00";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(573, 551);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.listBox2);
@@ -357,6 +368,7 @@ namespace P1
         private ListBox listBox2;
         private Button button4;
         private ComboBox comboBox1;
+        private Label label2;
     }
 }
 

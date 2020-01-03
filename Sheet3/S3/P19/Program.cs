@@ -17,9 +17,10 @@ namespace P19
             {
                 for (int i = 1; i <= n; i++)
                 {
-                    for (int j = i; j <= n+i-1; j++)
+                    for (int j = i; j <= n + i - 1; j++)
                     {
-                        Write(j+" ");
+                        Write(j + " ");
+
                     }
                     WriteLine();
                 }

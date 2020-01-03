@@ -12,6 +12,7 @@ namespace P1
 {
     public partial class Form1 : Form
     {
+        static int x, y, z;
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +25,10 @@ namespace P1
             listBox2.DataSource = p;
             listBox2.DisplayMember = "name";
             listBox2.ValueMember = "id";
+            DateTime d = new DateTime();
+             x = d.Hour;
+             y = d.Minute;
+             z = d.Second;
 
         }
         private void ClickEvent(object sender, EventArgs e)
@@ -31,8 +36,11 @@ namespace P1
         }
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            pf1 = new OpenFileDialog();
-            Initof();
+            //pf1 = new OpenFileDialog();
+            //Initof();
+            
+            tim1.Interval = 1000;
+            tim1.Start();
         }
 
         private void Initof()
@@ -99,8 +107,6 @@ namespace P1
                     listBox1.Items.Add(fn);
                 }
         }
-
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -169,9 +175,9 @@ namespace P1
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = (int)listBox2.SelectedValue;
-            phone pe = (phone)listBox2.SelectedItem;
-            MessageBox.Show(i.ToString() + "." + pe.name);
+            //int i = (int)listBox2.SelectedValue;
+            //phone pe = (phone)listBox2.SelectedItem;
+            //MessageBox.Show(i.ToString() + "." + pe.name);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -188,6 +194,35 @@ namespace P1
             listBox2.Items.AddRange(new string[] { "1", "2" });
             listBox2.SetSelected(0, true);
             listBox2.Items[0] = comboBox1.SelectedItem;
+        }
+
+        private void tim1_Tick_1(object sender, EventArgs e)
+        {
+            int hh = DateTime.Now.Hour;
+            int mm = DateTime.Now.Minute;
+            int ss = DateTime.Now.Second;
+            string s = "";
+            if (hh < 10)
+            {
+                s += "0" + hh;
+            }
+            else
+                s += hh;
+            s += ":";
+            if (mm < 10)
+            {
+                s += "0" + hh;
+            }
+            else
+                s += hh;
+            s += ":";
+            if (ss < 10)
+            {
+                s += "0" + hh;
+            }
+            else
+                s += hh;
+            label2.Text = s;
         }
     }
     class phone
